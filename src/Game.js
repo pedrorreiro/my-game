@@ -55,15 +55,16 @@ export function Game() {
     setCards([...cards]);
   }
   useEffect(() => {
-    if (!playing)
-      prepareCards(LEVELS[currentLevel].cards);
-  }, [playing]);
+
+    prepareCards(LEVELS[currentLevel].cards);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLevel]);
 
   const play = () => {
     setPlaying(true);
     fillLives();
     flipAll();
-    contar(3);
+    contar(5);
   }
 
   return (
